@@ -1,0 +1,22 @@
+.jogo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.letras {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.letras > div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+img {
+    width: 400px;
+    height: 500px;
+}
