@@ -4,36 +4,18 @@ export default function Letras() {
     return (
         <div className="letras">
             <div>
-                <button>{alfabeto[0]}</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
+                {
+                alfabeto
+                    .filter((letra,indice,alfabetoArray) => indice < 13)
+                    .map(letra=><button>{letra.toUpperCase()}</button>)
+                }
             </div>
             <div>
-                <button>{alfabeto[0]}</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
-                <button>A</button>
+                {
+                alfabeto
+                    .filter((letra,indice,alfabetoArray) => indice >= 13)
+                    .map(letra=><button>{letra.toUpperCase()}</button>)
+                }
             </div>
         </div>
     );
