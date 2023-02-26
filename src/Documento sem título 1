@@ -1,0 +1,33 @@
+início do jogo
+
+//campo da palavra vazio
+//botões das letras desabilitados
+//input do chute desabilitado
+//variável palavra da vez sem atribuição (ou sorteada, da segunda rodada em diante)
+//imagem no estado inicial (ou retornada no estado inicial, da segunda rodada em diante)
+
+*Ação* Clica botão escolher palavra
+
+//sorteio de uma palavra entre o array palavras
+//mostrar a palavra no campo palavra com um underline pra cada letra
+//desbloquear input chute
+
+*Ação 1* Clicar no botão da letra
+
+//se a letra faz parte da palavra, pra todas as letras que são iguais a letra selecionada, mostre a letra na palavra
+	//desative o botão da letra
+//se a letra não faz parte da palavra
+	//desative o botão da letra
+	//avance à próxima imagem
+	
+*Ação 2* Chutar uma palavra/letra incorreta e acabou tentativas
+
+//se a palavra está correta
+	//mostre a palavra
+	//pinte a palavra de verde
+	//desative todos os botões, exceto o da Escolher palavra
+	
+//se a palavra está errada
+	//mostre a palavra
+	//pinte a palavra de vermelho
+	//desative todos os botões, exceto o da Escolher palavra
