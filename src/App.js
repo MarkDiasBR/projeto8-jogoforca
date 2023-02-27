@@ -11,6 +11,7 @@ export default function App() {
     const [arrayLetrasEscolhidas, setArrayLetrasEscolhidas] = useState([]);
     const [contador, setContador] = useState(0);
     const [classePalavra, setClassePalavra] = useState("");
+    const [disabledBotoes, setDisabledBotoes] = useState(true);
 
     function atualizarPalavraExibida() {
 
@@ -30,6 +31,8 @@ export default function App() {
 
     function escolherPalavra() {
         setContador(0);
+
+        setDisabledBotoes(false);
 
         const arrayVazio = [];
         setArrayLetrasEscolhidas(arrayVazio); 
@@ -139,6 +142,7 @@ export default function App() {
                 contador={contador}
                 setContador={setContador}
                 selecionaLetra={selecionaLetra}
+                disabledBotoes={disabledBotoes}
             />
         </div>
     );

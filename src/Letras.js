@@ -5,7 +5,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                                 arrayLetrasEscolhidas, setArrayLetrasEscolhidas,
                                 escolherPalavra, atualizarPalavraExibida, 
                                 contador, setContador,
-                                selecionaLetra}) {
+                                disabledBotoes, selecionaLetra}) {
 
     return (
         <div className="letras">
@@ -16,7 +16,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                 DaVez</button>
                 <button onClick={()=>(console.log(palavraExibida))}>pal
                 Exib</button>
-                <button onClick={()=>(console.log(contador))}>{contador}</button>
+                <button onClick={()=>console.log(disabledBotoes)}>{disabledBotoes}</button>
                 {
                 alfabeto
                     .filter((letra,indice,alfabetoArray) => indice < 13)
@@ -25,7 +25,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                         data-test="letter"
                         onClick={()=>selecionaLetra(letra)}
                         className={`${arrayLetrasEscolhidas.includes(letra) && "selecionado"}`}
-                        disabled={arrayLetrasEscolhidas.includes(letra)}
+                        disabled={arrayLetrasEscolhidas.includes(letra) || disabledBotoes}
                     >
                         {letra.toUpperCase()}
                     </button>))
@@ -40,7 +40,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                         data-test="letter"
                         onClick={()=>selecionaLetra(letra)}
                         className={`${arrayLetrasEscolhidas.includes(letra) && "selecionado"}`}
-                        disabled={arrayLetrasEscolhidas.includes(letra)}                    
+                        disabled={arrayLetrasEscolhidas.includes(letra) || disabledBotoes}                    
                     >
                         {letra.toUpperCase()}
                     </button>))
