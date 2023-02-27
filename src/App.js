@@ -10,6 +10,7 @@ export default function App() {
     const [palavraExibida, setPalavraExibida] = useState();
     const [arrayLetrasEscolhidas, setArrayLetrasEscolhidas] = useState([]);
     const [contador, setContador] = useState(0);
+    const [classePalavra, setClassePalavra] = useState("");
 
     function atualizarPalavraExibida() {
 
@@ -28,10 +29,16 @@ export default function App() {
     }
 
     function escolherPalavra() {
+        setContador(0);
+
+        const arrayVazio = [];
+        setArrayLetrasEscolhidas(arrayVazio); 
         
         let indice = Math.floor(Math.random() * palavras.length);
         let novaPalavra = palavras[indice];
         setPalavraDaVez(novaPalavra);
+
+        setClassePalavra("");
 
         let arrayPalavraDaVez = novaPalavra.split("");
         let arrayPalavraExibida = arrayPalavraDaVez.map(() => "_" );
@@ -41,6 +48,9 @@ export default function App() {
 
     function selecionaLetra(letra){
         const letrasEscolhidas = [...arrayLetrasEscolhidas, letra];
+
+        const aumentarContador = !palavraDaVez.includes(letra);
+
         setArrayLetrasEscolhidas(letrasEscolhidas);
         let arrayPalavraDaVez = palavraDaVez.split("");
         let arrayPalavraExibida = arrayPalavraDaVez.map((char) => {
@@ -50,13 +60,35 @@ export default function App() {
             return "_"
         })
 
-        setPalavraExibida(arrayPalavraExibida.join(" "));
+        let novaPalavraExibida = arrayPalavraExibida.join(" ");
+        setPalavraExibida(novaPalavraExibida);
 
-        setContador(contador + 1);
+        let contadorAcrescentado = contador;
 
-        if (contador > 5) {
-            alert("cabou")
+        if (aumentarContador) {
+            contadorAcrescentado = contador + 1;
+            setContador(contadorAcrescentado);
         }
+            
+        if (!novaPalavraExibida.includes("_")) {
+            setClassePalavra("correto");
+        } 
+
+        if (contadorAcrescentado === 6) {
+            if (novaPalavraExibida.includes("_")) {
+                arrayPalavraExibida = arrayPalavraDaVez.map((char) => {
+                    return char;
+                })
+
+                novaPalavraExibida = arrayPalavraExibida.join("");
+
+                setPalavraExibida(novaPalavraExibida);
+
+                setClassePalavra("errado")
+            }
+        }
+
+        
     }
 
 /*
@@ -92,6 +124,8 @@ export default function App() {
                 contador={contador}
                 setContador={setContador}
                 selecionaLetra={selecionaLetra}
+                classePalavra={classePalavra}
+                setClassePalavra={setClassePalavra}
             />
             <Letras
                 palavraDaVez={palavraDaVez}

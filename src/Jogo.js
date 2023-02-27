@@ -5,6 +5,7 @@ export default function Jogo({palavraDaVez, setPalavraDaVez,
                               arrayLetrasEscolhidas, setArrayLetrasEscolhidas,
                               escolherPalavra, atualizarPalavraExibida, 
                               contador, setContador,
+                              classePalavra, setClassePalavra,
                               selecionaLetra}) {
 
 
@@ -14,7 +15,7 @@ export default function Jogo({palavraDaVez, setPalavraDaVez,
             <img src={`./assets/img/forca${contador}.png`} />
             <div>
                 <button onClick={()=>escolherPalavra()}>Escolher palavra</button>
-                <p>{palavraExibida}</p>
+                <p className={classePalavra}>{palavraExibida}</p>
             </div>
         </div>
     );
