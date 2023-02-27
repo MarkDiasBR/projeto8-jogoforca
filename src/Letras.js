@@ -10,13 +10,6 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
     return (
         <div className="letras">
             <div>
-                <button onClick={()=>(console.log(arrayLetrasEscolhidas))}>arr
-                LetEsc</button>
-                <button onClick={()=>(console.log(palavraDaVez))}>pal
-                DaVez</button>
-                <button onClick={()=>(console.log(palavraExibida))}>pal
-                Exib</button>
-                <button onClick={()=>console.log(disabledBotoes)}>{disabledBotoes}</button>
                 {
                 alfabeto
                     .filter((letra,indice,alfabetoArray) => indice < 13)

@@ -75,6 +75,7 @@ export default function App() {
             
         if (!novaPalavraExibida.includes("_")) {
             setClassePalavra("correto");
+            setDisabledBotoes(true);
         } 
 
         if (contadorAcrescentado === 6) {
@@ -87,7 +88,8 @@ export default function App() {
 
                 setPalavraExibida(novaPalavraExibida);
 
-                setClassePalavra("errado")
+                setClassePalavra("errado");
+                setDisabledBotoes(true);
             }
         }
 
