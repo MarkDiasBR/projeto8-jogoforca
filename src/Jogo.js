@@ -12,10 +12,10 @@ export default function Jogo({palavraDaVez, setPalavraDaVez,
 
     return (
         <div className="jogo">
-            <img src={`./assets/img/forca${contador}.png`} />
+            <img data-test="game-image" src={`./assets/img/forca${contador}.png`} />
             <div>
-                <button onClick={()=>escolherPalavra()}>Escolher palavra</button>
-                <p className={classePalavra}>{palavraExibida}</p>
+                <button data-test="choose-word" onClick={()=>escolherPalavra()}>Escolher palavra</button>
+                <p data-test="word" className={classePalavra}>{palavraExibida}</p>
             </div>
         </div>
     );

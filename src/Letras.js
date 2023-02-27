@@ -22,6 +22,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                     .filter((letra,indice,alfabetoArray) => indice < 13)
                     .map(letra=>(
                     <button
+                        data-test="letter"
                         onClick={()=>selecionaLetra(letra)}
                         className={`${arrayLetrasEscolhidas.includes(letra) && "selecionado"}`}
                         disabled={arrayLetrasEscolhidas.includes(letra)}
@@ -36,6 +37,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                     .filter((letra,indice,alfabetoArray) => indice >= 13)
                     .map(letra=>(
                     <button
+                        data-test="letter"
                         onClick={()=>selecionaLetra(letra)}
                         className={`${arrayLetrasEscolhidas.includes(letra) && "selecionado"}`}
                         disabled={arrayLetrasEscolhidas.includes(letra)}                    
