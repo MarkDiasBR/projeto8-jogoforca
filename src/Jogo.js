@@ -3,13 +3,15 @@ import { useState } from 'react';
 export default function Jogo({palavraDaVez, setPalavraDaVez, 
                               palavraExibida, setPalavraExibida,
                               arrayLetrasEscolhidas, setArrayLetrasEscolhidas,
-                              escolherPalavra, atualizarPalavraExibida, selecionaLetra}) {
+                              escolherPalavra, atualizarPalavraExibida, 
+                              contador, setContador,
+                              selecionaLetra}) {
 
 
 
     return (
         <div className="jogo">
-            <img src="./assets/img/forca0.png" alt="" srcset="" />
+            <img src={`./assets/img/forca${contador}.png`} />
             <div>
                 <button onClick={()=>escolherPalavra()}>Escolher palavra</button>
                 <p>{palavraExibida}</p>

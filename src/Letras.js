@@ -3,7 +3,9 @@ import alfabeto from './alfabeto.js';
 export default function Letras({palavraDaVez, setPalavraDaVez, 
                                 palavraExibida, setPalavraExibida,
                                 arrayLetrasEscolhidas, setArrayLetrasEscolhidas,
-                                escolherPalavra, atualizarPalavraExibida, selecionaLetra}) {
+                                escolherPalavra, atualizarPalavraExibida, 
+                                contador, setContador,
+                                selecionaLetra}) {
 
     return (
         <div className="letras">
@@ -14,6 +16,7 @@ export default function Letras({palavraDaVez, setPalavraDaVez,
                 DaVez</button>
                 <button onClick={()=>(console.log(palavraExibida))}>pal
                 Exib</button>
+                <button onClick={()=>(console.log(contador))}>{contador}</button>
                 {
                 alfabeto
                     .filter((letra,indice,alfabetoArray) => indice < 13)

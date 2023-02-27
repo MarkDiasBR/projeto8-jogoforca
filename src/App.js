@@ -4,16 +4,19 @@ import palavras from './palavras.js';
 import { useState } from 'react';
 
 
-function App() {
+export default function App() {
     
     const [palavraDaVez, setPalavraDaVez] = useState("");
     const [palavraExibida, setPalavraExibida] = useState();
     const [arrayLetrasEscolhidas, setArrayLetrasEscolhidas] = useState([]);
+    const [contador, setContador] = useState(0);
 
     function atualizarPalavraExibida() {
-        let arrayPalavraDaVez = palavraDaVez.split("");
-        console.log(arrayPalavraDaVez)
-        let arrayPalavraExibida = arrayPalavraDaVez.map((letra)=>{
+
+        let novaPalavra = palavraDaVez;
+
+        let arrayPalavraDaVez = novaPalavra.split("");
+        let arrayPalavraExibida = arrayPalavraDaVez.map((letra) => {
             if (arrayLetrasEscolhidas.includes(letra)) {
                 return letra;
             } else {
@@ -28,30 +31,53 @@ function App() {
         
         let indice = Math.floor(Math.random() * palavras.length);
         let novaPalavra = palavras[indice];
-        
         setPalavraDaVez(novaPalavra);
-        
+
         let arrayPalavraDaVez = novaPalavra.split("");
-        let arrayPalavraExibida = arrayPalavraDaVez.map((letra) => {
-            if (arrayLetrasEscolhidas.includes(letra)) {
-                return letra;
-            } else {
-                return "_";
-            }
-        });
+        let arrayPalavraExibida = arrayPalavraDaVez.map(() => "_" );
         
         setPalavraExibida(arrayPalavraExibida.join(" "));
     }
 
+    function selecionaLetra(letra){
+        const letrasEscolhidas = [...arrayLetrasEscolhidas, letra];
+        setArrayLetrasEscolhidas(letrasEscolhidas);
+        let arrayPalavraDaVez = palavraDaVez.split("");
+        let arrayPalavraExibida = arrayPalavraDaVez.map((char) => {
+            if(letrasEscolhidas.includes(char)){
+                return char;
+            }
+            return "_"
+        })
 
-    function selecionaLetra(letra) {
+        setPalavraExibida(arrayPalavraExibida.join(" "));
 
-        if (!arrayLetrasEscolhidas.includes(letra)) {
-            setArrayLetrasEscolhidas([...arrayLetrasEscolhidas,letra])
-            
+        setContador(contador + 1);
+
+        if (contador > 5) {
+            alert("cabou")
         }
     }
+
+/*
+    function selecionaLetra(letra) {
+
+        setArrayLetrasEscolhidas([...arrayLetrasEscolhidas, letra]);
+        
+        let arrayPalavraDaVez = palavraDaVez.split("");
+        let arrayPalavraExibida = arrayPalavraDaVez.map((char) => {
+            if (arrayLetrasEscolhidas.includes(char) ) {
+                return char;
+            } else {
+                return "_";
+            }
+        });
+
+        setPalavraExibida(arrayPalavraExibida.join(" "));
+
+    }
     
+    */
     return (
         <div className="App">
             <Jogo 
@@ -63,6 +89,8 @@ function App() {
                 setArrayLetrasEscolhidas={setArrayLetrasEscolhidas}
                 escolherPalavra={escolherPalavra}
                 atualizarPalavraExibida={atualizarPalavraExibida}
+                contador={contador}
+                setContador={setContador}
                 selecionaLetra={selecionaLetra}
             />
             <Letras
@@ -74,10 +102,10 @@ function App() {
                 setArrayLetrasEscolhidas={setArrayLetrasEscolhidas}
                 escolherPalavra={escolherPalavra}
                 atualizarPalavraExibida={atualizarPalavraExibida}
+                contador={contador}
+                setContador={setContador}
                 selecionaLetra={selecionaLetra}
             />
         </div>
     );
 }
-
-export default App;
